@@ -54,7 +54,7 @@ public class Room {
 		return exit;
 	}
 
-	/**
+	/*.*
 	 * @return The description of the room.
 	 */
 	public String getDescription() {

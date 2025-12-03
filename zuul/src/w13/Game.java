@@ -143,7 +143,7 @@ public class Game {
 		}
 	}
 
-	/*
+	/*.
 	 * "Quit" was entered. Check the rest of the command to see whether we really
 	 * quit the game.
 	 * 
