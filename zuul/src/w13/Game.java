@@ -67,21 +67,25 @@ public class Game {
 		
 		// 현재 있는 방에 대한 정보 출력
 		System.out.println("Location: " + currentRoom.getDescription());
+		printLocationInfo();
+	}
+	
+	private void printLocationInfo() {
 		// 출구가 있는 방향을 모두 출력
-		System.out.print("Exits: ");
-		if (currentRoom.northExit != null) {
-			System.out.print("north ");
-		}
-		if (currentRoom.eastExit != null) {
-			System.out.print("east ");
-		}
-		if (currentRoom.southExit != null) {
-			System.out.print("south ");
-		}
-		if (currentRoom.westExit != null) {
-			System.out.print("west ");
-		}
-		System.out.println();
+				System.out.print("Exits: ");
+				if (currentRoom.northExit != null) {
+					System.out.print("north ");
+				}
+				if (currentRoom.eastExit != null) {
+					System.out.print("east ");
+				}
+				if (currentRoom.southExit != null) {
+					System.out.print("south ");
+				}
+				if (currentRoom.westExit != null) {
+					System.out.print("west ");
+				}
+				System.out.println();
 	}
 
 	/**
@@ -160,21 +164,7 @@ public class Game {
 
 			// 새 방에 대한 정보 출력
 			System.out.println("Location: " + currentRoom.getDescription());
-			// 출구가 있는 방향을 모두 출력
-			System.out.print("Exits: ");
-			if (currentRoom.northExit != null) {
-				System.out.print("north ");
-			}
-			if (currentRoom.eastExit != null) {
-				System.out.print("east ");
-			}
-			if (currentRoom.southExit != null) {
-				System.out.print("south ");
-			}
-			if (currentRoom.westExit != null) {
-				System.out.print("west ");
-			}
-			System.out.println();
+			printLocationInfo();
 		}
 	}
 
