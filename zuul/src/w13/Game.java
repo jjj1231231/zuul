@@ -16,7 +16,7 @@ public class Game {
 	 * Create all the rooms and link their exits together. 방들을 만들고 방의 출구들을 서로 엮어준다.
 	 */
 	private void createRooms() {
-		Room hall, lectureRoom, computerRoom, office, dongBang;
+		Room hall, lectureRoom, computerRoom, office, dongBang, cellar;
 
 		// create the rooms
 		hall = new Room("Hall");
@@ -24,13 +24,30 @@ public class Game {
 		dongBang = new Room("Dongari room");
 		computerRoom = new Room("Computer room");
 		office = new Room("Office");
+		cellar = new Room("Cellar");
 
-		// initialise room exits
-		hall.setExits(null, lectureRoom, computerRoom, dongBang);
-		lectureRoom.setExits(null, null, null, hall);
-		dongBang.setExits(null, hall, null, null);
-		computerRoom.setExits(hall, office, null, null);
-		office.setExits(null, null, null, computerRoom);
+		// initialise room exits (새 API: setExit(String direction, Room neighbor))
+		// hall: east -> lectureRoom, south -> computerRoom, west -> dongBang
+		hall.setExit("east", lectureRoom);
+		hall.setExit("south", computerRoom);
+		hall.setExit("west", dongBang);
+
+		// lectureRoom: west -> hall
+		lectureRoom.setExit("west", hall);
+
+		// dongBang: east -> hall
+		dongBang.setExit("east", hall);
+
+		// computerRoom: north -> hall, east -> office
+		computerRoom.setExit("north", hall);
+		computerRoom.setExit("east", office);
+		computerRoom.setExit("down", cellar);      // <-- 추가: computerRoom 아래에 cellar 연결
+
+		// office: west -> computerRoom, down -> cellar (예시로 cellar 연결)
+		office.setExit("west", computerRoom);
+
+		// cellar: up -> office (역방향 연결)
+		cellar.setExit("up", computerRoom);
 
 		currentRoom = hall; // 홀에서 게임을 시작한다.
 	}

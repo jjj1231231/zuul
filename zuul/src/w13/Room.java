@@ -58,6 +58,12 @@ public class Room {
 
         r = exits.get("west");
         if (r != null) sb.append(" west");
+        
+        r = exits.get("up");
+        if (r != null) sb.append(" up");
+
+        r = exits.get("down");
+        if (r != null) sb.append(" down");
 
         return sb.toString();
     }
